@@ -1,4 +1,4 @@
-import Link from "./components/Link";
+import Link from "./components/custom-link";
 
 export const metadata = {
 	title: "404 | Amit Singh",
@@ -7,16 +7,16 @@ export const metadata = {
 
 export default function Custom404() {
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen gap-2">
-			<h1 className="text-3xl font-bold tracking-tight text-primary">
+		<div className="flex min-h-screen max-w-xs mx-auto flex-col items-start gap-4 pt-32">
+			<h1 className="text-5xl font-bold tracking-wider text-primary">
 				404
 			</h1>
 			<p className="text-secondary">
 				Uh oh! This page does not exists, maybe you clicked an old link
 				or misspelled. Please try again…
 			</p>
-			<div className="h-2" />
-			<Link href="/" underline>
+
+			<Link className="mt-16" href="/" underline>
 				Return Home
 			</Link>
 		</div>

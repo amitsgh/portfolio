@@ -2,19 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '@radix-ui/colors/gray.css';
-@import '@radix-ui/colors/gray-dark.css';
-@import '@radix-ui/colors/gray-alpha.css';
-@import '@radix-ui/colors/gray-dark-alpha.css';
+@import "@radix-ui/colors/gray.css";
+@import "@radix-ui/colors/gray-dark.css";
+@import "@radix-ui/colors/gray-alpha.css";
+@import "@radix-ui/colors/gray-dark-alpha.css";
 
-@import '@radix-ui/colors/blue.css';
-@import '@radix-ui/colors/blue-dark.css';
-@import '@radix-ui/colors/blue-alpha.css';
-@import '@radix-ui/colors/blue-dark-alpha.css';
+@import "@radix-ui/colors/blue.css";
+@import "@radix-ui/colors/blue-dark.css";
+@import "@radix-ui/colors/blue-alpha.css";
+@import "@radix-ui/colors/blue-dark-alpha.css";
+
+@import "@radix-ui/colors/red.css";
+@import "@radix-ui/colors/red-dark.css";
+@import "@radix-ui/colors/red-alpha.css";
+@import "@radix-ui/colors/red-dark-alpha.css";
+
+@import "@radix-ui/colors/lime.css";
+@import "@radix-ui/colors/lime-dark.css";
+@import "@radix-ui/colors/lime-alpha.css";
+@import "@radix-ui/colors/lime-dark-alpha.css";
 
 @layer base {
-	:root {
-		--bg: var(--gray-1);
-		--boxBg: var(--gray-4);
-	}
+    :root {
+        --bg: var(--gray-1);
+        --boxBg: var(--gray-4);
+    }
+}
+
+.overflow-x-scroll.snap-x::-webkit-scrollbar {
+    /* hide scrollbars with webkit scrollbar */
+    display: none;
+}
+
+@media (hover: hover) {
+    .animated-list:hover li {
+        opacity: 0.5;
+    }
+
+    .animated-list:hover li:hover {
+        opacity: 1;
+    }
 }

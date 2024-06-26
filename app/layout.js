@@ -1,5 +1,5 @@
-import ThemeProvider from "@/app/components/theme-provider";
-import ThemeSwitcher from "@/app/components/theme-switcher";
+import ThemeProvider from "@/app/components/theme/provider";
+import ThemeSwitcher from "@/app/components/theme/switcher";
 import { neueMontreal } from "@/public/fonts/local-font";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -27,14 +27,15 @@ export default function RootLayout({ children }) {
             suppressContentEditableWarning
             className={`${myFont.className} ${inter.className}`}
         >
-            <body className="width-full absolute inset-0 h-full w-full bg-contrast bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] text-primary antialiased dark:bg-primary">
+            <body className="width-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] text-primary antialiased dark:bg-primary">
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"
                     enableSystem
-                    disableTransitionOnChange
                 >
-                    {children}
+                    <div className="mx-auto max-w-3xl px-8 pb-24 pt-16">
+                        {children}
+                    </div>
                     <ThemeSwitcher className="h-4 w-4 transition-all group-active:scale-105" />
                 </ThemeProvider>
             </body>

@@ -5,6 +5,7 @@ module.exports = {
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./components/**/*.{js,ts,jsx,tsx,mdx}",
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
+        "@/app/components/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
         extend: {
@@ -35,16 +36,20 @@ module.exports = {
                 secondary: "var(--gray-3)",
                 tertiary: "var(--gray-5)",
             },
+            keyframes: {
+                in: {
+                    "0%": { transform: "translateY(18px)", opacity: 0 },
+                    "100%": { transform: "translateY(0)", opacity: 1 },
+                },
+                "in-reverse": {
+                    "0%": { transform: "translateY(-18px)", opacity: 0 },
+                    "100%": { transform: "translateY(0px)", opacity: 1 },
+                },
+            },
+            animation: {
+                in: "in .6s both",
+                "in-reverse": "in-reverse .6s both",
+            },
         },
     },
-    plugins: [
-        function ({ addUtilities }) {
-            const newUtilities = {
-                ".border-gradient": {
-                    borderImage: "var(--border-image)",
-                },
-            };
-            addUtilities(newUtilities);
-        },
-    ],
 };

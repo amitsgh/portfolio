@@ -26,6 +26,7 @@
     :root {
         --bg: var(--gray-1);
         --boxBg: var(--gray-4);
+        --color: var(--color);
     }
 }
 
@@ -42,4 +43,8 @@
     .animated-list:hover li:hover {
         opacity: 1;
     }
+}
+
+.animate-in {
+    animation-delay: calc(var(--index) * 130ms);
 }

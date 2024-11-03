@@ -1,6 +1,6 @@
-import ThemeProvider from "@/components/theme/provider";
-import ThemeSwitcher from "@/components/theme/switcher";
-import { RESUME_DATA } from "@/data/resume";
+import ThemeProvider from "@/components/theme/Provider.jsx";
+import ThemeSwitcher from "@/components/theme/Switch.jsx";
+import { RESUME_DATA } from "@/data/resume.jsx";
 import { neueMontreal } from "@/public/fonts/local-font";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const myFont = neueMontreal;
 
 export const metadata = {
-    metadataBase: new URL("https://www.amti.com"),
+    metadataBase: new URL("https://www.amit.com"),
     title: `${RESUME_DATA.name} | ${RESUME_DATA.about}`,
     description: RESUME_DATA.summary,
     openGraph: {

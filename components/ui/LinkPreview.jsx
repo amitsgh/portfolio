@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-async function fetchMetaTags(url: string) {
+async function fetchMetaTags(url) {
     const response = await fetch(
         `/api/extractMetaTags?url=${encodeURIComponent(url)}`,
     );
@@ -13,13 +13,9 @@ async function fetchMetaTags(url: string) {
     return response.json();
 }
 
-const LinkPreview = ({ url }: { url: string }) => {
-    const [data, setData] = useState<{
-        title: string;
-        description: string;
-        image: string;
-    } | null>(null);
-    const [error, setError] = useState<string | null>(null);
+const LinkPreview = ({ url }) => {
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         fetchMetaTags(url)

@@ -54,14 +54,17 @@ export const RESUME_DATA = {
             logo: "OmdenaLogo" || "OM",
             start: "Mar 2024",
             end: "Present",
-            description:
-                "Designed and implemented an AI model for climate and credit risk scoring with 93% accuracy. Enhanced data quality through extensive preprocessing, web scraping, and API integration. Optimized BERT for text classification and reported performance metrics using matplotlib and pandas.",
+            description: [
+                "Designed and implemented an AI model for climate and credit risk scoring with 93% accuracy.",
+                "Enhanced data quality through extensive preprocessing, web scraping, and API integration.",
+                "Optimized BERT for text classification and reported performance metrics using matplotlib and pandas.",
+            ],
             media: {
                 videos: [],
-                images: [],
+                images: [ProfileImage],
                 linkPreviews: [
-                    "https://apps.apple.com/us/app/whatnot-live-video-shopping/id1488269261",
-                    "https://techcrunch.com/2022/07/21/whatnot-valuation-livestream-shopping/",
+                    "https://github.com/Stanford-Health/wearipedia",
+                    "https://github.com/Stanford-Health/wearable-notebooks",
                 ],
             },
         },
@@ -73,8 +76,11 @@ export const RESUME_DATA = {
             logo: "HitachiLogo" || "HV",
             start: "Jan 2023",
             end: "Jul 2023",
-            description:
-                "Developed dynamic web application features using Spring Boot and Thymeleaf, enhancing user engagement by 30%. Integrated Event-Driven Architecture with Kafka for optimized POST API operations.",
+            description: [
+                "Designed and implemented an AI model for climate and credit risk scoring with 93% accuracy.",
+                "Enhanced data quality through extensive preprocessing, web scraping, and API integration.",
+                "Optimized BERT for text classification and reported performance metrics using matplotlib and pandas.",
+            ],
             media: {
                 videos: [],
                 images: [],

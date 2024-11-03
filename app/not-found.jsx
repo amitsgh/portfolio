@@ -1,4 +1,4 @@
-import Link from "../components/custom-link";
+import Link from "next/link";
 
 export const metadata = {
     title: "404 | Amit Singh",
@@ -16,7 +16,7 @@ export default function Custom404() {
                 or misspelled. Please try again…
             </p>
 
-            <Link className="mt-16" href="/" underline>
+            <Link className="mt-16" href="/">
                 Return Home
             </Link>
         </div>

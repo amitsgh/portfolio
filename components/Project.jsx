@@ -1,7 +1,6 @@
-import Link from "@/components/custom-link";
-import Halo from "@/components/halo";
-import { Section } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section.jsx";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Project({ projects }) {
     return (
@@ -18,13 +17,11 @@ export default function Project({ projects }) {
                             className="space-y-4"
                         >
                             <div className="aspect-video overflow-hidden rounded-md bg-secondary">
-                                <Halo strength={10}>
-                                    <Image
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="h-full w-full object-cover"
-                                    />
-                                </Halo>
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="h-full w-full object-cover"
+                                />
                             </div>
 
                             <div className="space-y-1">

@@ -5,7 +5,6 @@ module.exports = {
         "./pages/**/*.{js,ts,jsx,tsx,mdx}",
         "./components/**/*.{js,ts,jsx,tsx,mdx}",
         "./app/**/*.{js,ts,jsx,tsx,mdx}",
-        "@/app/components/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
         extend: {
@@ -14,16 +13,9 @@ module.exports = {
                 secondary: "var(--gray-11)",
                 tertiary: "var(--gray-9)",
             },
-            backgroundImage: {
-                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-                "gradient-conic":
-                    "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-                "gradinet-4":
-                    "linear-gradient(to right, var(--red-7), var(--blue-7), var(--yellow-7), var(--green-7)) 1",
-            },
             textColor: {
                 primary: "var(--gray-12)",
-                secondary: "var(--gray-11)",
+                secondary: "var(--gray-10)",
                 tertiary: "var(--gray-9)",
             },
             fontFamily: {

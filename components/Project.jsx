@@ -1,19 +1,19 @@
-import { Section } from "@/components/ui/Section.jsx";
+import { Section } from "@/components/ui/Section";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Project({ projects }) {
+export default function Project({ project }) {
     return (
         <Section className="flex animate-in flex-col gap-8">
-            <p className="tracking-tight text-secondary">Pinned Projects</p>
+            <p className="tracking-tight text-secondary">Pinned Project</p>
             <ul className="animated-list flex snap-x snap-mandatory grid-cols-2 flex-nowrap gap-8 overflow-x-scroll">
-                {projects.map((project) => (
+                {project.map((project) => (
                     <li
                         key={project.slug}
                         className="col-span-1 min-w-64 snap-start transition-opacity"
                     >
                         <Link
-                            href={`/projects/${project.slug}`}
+                            href={`/project/${project.slug}`}
                             className="space-y-4"
                         >
                             <div className="aspect-video overflow-hidden rounded-md bg-secondary">
@@ -21,6 +21,7 @@ export default function Project({ projects }) {
                                     src={project.image}
                                     alt={project.title}
                                     className="h-full w-full object-cover"
+                                    layout="responsive"
                                 />
                             </div>
 

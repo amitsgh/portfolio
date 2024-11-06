@@ -28,35 +28,46 @@ const LinkPreview = ({ url }) => {
     }
 
     if (!data) {
-        return <p>Loading...</p>;
+        return (
+            <div className="h-full w-full animate-pulse rounded-md bg-secondary"></div>
+        );
     }
+
+    const extractBeforeColon = (text) => {
+        const indexOfColon = text.indexOf(":");
+        return indexOfColon !== -1
+            ? text.slice(0, indexOfColon).trim()
+            : text.trim();
+    };
 
     return (
         <Link
             href={url}
             target="_blank"
-            className="flex h-full w-full max-w-lg cursor-pointer flex-col items-center rounded-lg bg-gray-100 text-left text-black transition-shadow duration-300"
+            className="flex cursor-pointer flex-col items-center overflow-hidden rounded-lg bg-secondary"
             style={{ textDecoration: "none" }}
         >
             <div className="w-full">
                 <img
                     src={data.image}
                     alt=""
-                    className="w-full rounded-t-lg object-cover object-top"
-                    style={{ minHeight: "149px", maxHeight: "149px" }}
+                    className="h-full w-full object-cover object-top"
                 />
             </div>
             <div
                 className="flex w-full flex-col justify-between rounded-b-lg p-4"
                 style={{ minHeight: "150px", maxHeight: "150px" }}
             >
-                <h3 className="text-md mb-1 font-semibold">{data.title}</h3>
-                <p className="mb-1 text-sm text-gray-700">
-                    {data.description.length > 75
+                <h3 className="text-md mb-1 font-semibold">
+                    {extractBeforeColon(data.title)}
+                </h3>
+                <p className="mb-1 line-clamp-3 text-sm">
+                    {/* {data.description.length > 75
                         ? `${data.description.substring(0, 75)}...`
-                        : data.description}
+                        : data.description} */}
+                    {data.description}
                 </p>
-                <span className="text-xs text-gray-500">
+                <span className="text-xs text-secondary">
                     {url.substring(0, 50)}
                 </span>
             </div>

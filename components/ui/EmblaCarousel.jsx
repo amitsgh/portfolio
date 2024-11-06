@@ -8,7 +8,7 @@ import {
     PrevButton,
     usePrevNextButtons,
 } from "./EmblaCarouselArrowButtons";
-import { DotButton, useDotButton } from "./EmblaCarouselDotButton";
+import { useDotButton } from "./EmblaCarouselDotButton";
 import LinkPreview from "./LinkPreview";
 
 const EmblaCarousel = (props) => {
@@ -38,21 +38,8 @@ const EmblaCarousel = (props) => {
                     {slides.map((slide, index) => (
                         <div className="embla__slide" key={index}>
                             {typeof slide !== "string" &&
-                            slide.type === "image" ? (
-                                <div className="flex aspect-video h-full w-full items-center justify-center rounded-md bg-white">
-                                    <Image
-                                        src={slide.url}
-                                        alt={`slide-${index}`}
-                                        style={{
-                                            width: "60%",
-                                            height: "60%",
-                                            objectFit: "cover",
-                                            objectPosition: "left",
-                                            borderRadius: "0px", // Same border radius as LinkPreview
-                                        }}
-                                        className=""
-                                    />
-                                </div>
+                            slide.type === "link" ? (
+                                <LinkPreview url={slide.url} />
                             ) : typeof slide !== "string" &&
                               slide.type === "video" ? (
                                 <iframe
@@ -67,8 +54,16 @@ const EmblaCarousel = (props) => {
                                     }}
                                 ></iframe>
                             ) : typeof slide !== "string" &&
-                              slide.type === "link" ? (
-                                <LinkPreview url={slide.url} />
+                              slide.type === "image" ? (
+                                <div className="flex items-center justify-center w-full h-full overflow-hidden rounded-md bg-white p-2">
+                                    <Image
+                                        src={slide.url}
+                                        alt={`slide-${index}`}
+                                        width={500}
+                                        height={400}
+                                        className="rounded-sm"
+                                    />
+                                </div>
                             ) : null}
                         </div>
                     ))}
@@ -88,7 +83,7 @@ const EmblaCarousel = (props) => {
                         />
                     </div>
 
-                    <div className="embla__dots">
+                    {/* <div className="embla__dots">
                         {scrollSnaps.map((_, index) => (
                             <DotButton
                                 key={index}
@@ -100,7 +95,7 @@ const EmblaCarousel = (props) => {
                                 )}
                             />
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             )}
         </section>

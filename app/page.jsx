@@ -1,46 +1,46 @@
 import { MailIcon } from "@/components/icons/MailIcon";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
+import Avatar from "@/components/ui/Avatar";
+
 import { Button } from "@/components/ui/Button";
 import { Card, CardContent, CardHeader } from "@/components/ui/Card";
 import EmblaCarousel from "@/components/ui/EmblaCarousel";
 import { Section } from "@/components/ui/Section";
 import { RESUME_DATA } from "@/data/resume";
-import ProfileImage from "@/public/image/profile.jpg";
 import Link from "next/link";
 
 const OPTIONS = { loop: false };
 
 export default function Home() {
     return (
-        <main className="relative mx-auto flex max-w-3xl scroll-my-12 flex-col gap-y-12 overflow-auto p-4 md:p-16 print:p-12">
-            <Section className="space-y-8 print:space-y-6">
-                <div className="flex items-center justify-between">
-                    <div className="flex-1 space-y-1.5">
-                        <h1 className="text-4xl font-bold tracking-wide">
+        <main className="relative mx-auto mt-4 flex max-w-2xl flex-col gap-y-16 overflow-x-hidden p-4 md:p-16">
+            <Section>
+                <div className="flex items-start justify-between">
+                    <div className="flex-1 space-y-2">
+                        <h1 className="text-4xl font-bold tracking-wide md:text-6xl">
                             {RESUME_DATA.name}
                         </h1>
-                        <p className="max-w-md text-pretty font-mono text-secondary">
+                        <p className="max-w-md text-pretty font-mono text-lg font-medium text-secondary">
                             {RESUME_DATA.about}
                         </p>
-                        <div className="flex gap-x-4 pt-4 font-mono text-sm text-secondary print:hidden">
+                        <div className="flex gap-x-4 pt-4 font-mono text-secondary">
                             {RESUME_DATA.contact.email ? (
                                 <Button
-                                    className="h-8 w-8"
+                                    className="h-8 w-8 hover:text-primary"
                                     variant="ghost"
                                     size="icon"
                                     asChild
                                 >
-                                    <a
+                                    <Link
                                         href={`mailto:${RESUME_DATA.contact.email}`}
                                     >
                                         <MailIcon className="h-6 w-6" />
-                                    </a>
+                                    </Link>
                                 </Button>
                             ) : null}
                             {RESUME_DATA.contact.social.map((social) => (
                                 <Button
                                     key={social.name}
-                                    className="h-8 w-8"
+                                    className="h-8 w-8 hover:text-primary"
                                     variant="ghost"
                                     size="icon"
                                     asChild
@@ -53,50 +53,46 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <Avatar className="h-28 w-28 bg-secondary">
-                        <AvatarImage
-                            alt={RESUME_DATA.name}
-                            src={ProfileImage}
-                        />
-                        <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
-                    </Avatar>
+                    <Avatar
+                        src={RESUME_DATA.avatarUrl}
+                        alt={RESUME_DATA.name}
+                        fallbackText={RESUME_DATA.initials}
+                        className=""
+                    />
                 </div>
             </Section>
 
             <Section>
-                <h2 className="text-2xl font-bold">About</h2>
+                <h2 className="pb-10 before:absolute before:text-8xl before:font-bold before:text-secondary before:opacity-10 before:content-['About']"></h2>
                 <p className="text-pretty font-mono text-secondary">
                     {RESUME_DATA.summary}
                 </p>
             </Section>
-            {/* 
-            <Section>
-                <h2 className="text-2xl">Projects</h2>
-                <p className="text-pretty text-secondary">
-                    {RESUME_DATA.summary}
-                </p>
-            </Section> */}
-
-            {/* <Project projects={projects} /> */}
 
             <Section>
-                <h2 className="text-2xl font-bold">Experience</h2>
+                <h2 className="pb-10 before:absolute before:text-8xl before:font-bold before:text-secondary before:opacity-10 before:content-['Experience']"></h2>
                 {RESUME_DATA.work.map((work) => {
                     return (
-                        <Card key={work.company}>
+                        <Card key={work.company} className="mb-2">
                             <CardHeader>
-                                <div className="flex items-center justify-between gap-x-2">
-                                    <h3 className="inline-flex items-center justify-center gap-x-1 text-xl">
-                                        <Link href={work.link}>
-                                            {work.company}
-                                        </Link>
+                                <div className="flex items-center justify-between">
+                                    <h3 className="inline-flex items-center justify-center gap-x-1 text-lg font-bold leading-none">
+                                        {/* <Link
+                                            className="after:content-['_↗']"
+                                            href={work.link}
+                                        > */}
+                                        {work.company}
+                                        {/* </Link> */}
                                     </h3>
+
                                     <div className="text-sm text-secondary">
                                         {work.start} - {work.end}
                                     </div>
                                 </div>
 
-                                <h4 className="text-sm">{work.title}</h4>
+                                <h4 className="text-sm leading-none">
+                                    {work.title}
+                                </h4>
                             </CardHeader>
                             <CardContent className="mt-2 text-pretty text-secondary">
                                 <ul
@@ -105,28 +101,87 @@ export default function Home() {
                                         paddingLeft: "20px",
                                     }}
                                 >
+                                    <em className="text-sm text-primary">
+                                        This text is italicized using the em
+                                        tags
+                                    </em>
                                     {work.description.map((line, index) => (
-                                        <li key={index}>{line}</li>
+                                        <li
+                                            key={index}
+                                            className="leading-relaxed"
+                                        >
+                                            {line}
+                                        </li>
                                     ))}
                                 </ul>
                             </CardContent>
-                            <div className="mb-10 mt-2">
+                        </Card>
+                    );
+                })}
+            </Section>
+
+            <Section>
+                <h2 className="pb-10 before:absolute before:text-8xl before:font-bold before:text-secondary before:opacity-10 before:content-['Project']"></h2>
+                {RESUME_DATA.project.map((project) => {
+                    return (
+                        <Card key={project.name} className="mb-2">
+                            <CardHeader className="text-lg font-bold">
+                                <Link
+                                    className="after:content-['_↗']"
+                                    href={project.link}
+                                    target="_blank"
+                                >
+                                    {project.name}
+                                </Link>
+                            </CardHeader>
+                            <CardContent className="mt-2 text-pretty text-secondary">
+                                <ul
+                                    style={{
+                                        listStyleType: "disc",
+                                        paddingLeft: "20px",
+                                    }}
+                                >
+                                    {project.description.map((line, index) => (
+                                        <li
+                                            key={index}
+                                            className="leading-relaxed"
+                                        >
+                                            {/* {line.split(" ").map((word, i) => {
+                                                if (word === "Tech:") {
+                                                    return (
+                                                        <span
+                                                            key={i}
+                                                            className="text-primary"
+                                                        >
+                                                            Tech:
+                                                        </span>
+                                                    );
+                                                } else {
+                                                    return " " + word + " ";
+                                                }
+                                            })} */}
+                                            {line}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </CardContent>
+                            <div className="mt-4">
                                 <CardContent className="media embla">
                                     <EmblaCarousel
                                         slides={[
-                                            ...work.media.videos.map(
+                                            ...project.media.videos.map(
                                                 (video) => ({
                                                     url: video,
                                                     type: "video",
                                                 }),
                                             ),
-                                            ...work.media.images.map(
+                                            ...project.media.images.map(
                                                 (image) => ({
                                                     url: image,
                                                     type: "image",
                                                 }),
                                             ),
-                                            ...work.media.linkPreviews.map(
+                                            ...project.media.linkPreviews.map(
                                                 (link) => ({
                                                     url: link,
                                                     type: "link",
@@ -134,6 +189,7 @@ export default function Home() {
                                             ),
                                         ]}
                                         options={OPTIONS}
+                                        className="aspect-video"
                                     />
                                 </CardContent>
                             </div>
@@ -141,6 +197,37 @@ export default function Home() {
                     );
                 })}
             </Section>
+
+            {/* <Section>
+                <ul className="animated-list grid grid-cols-2 gap-8">
+                    {RESUME_DATA.project.map((project) => (
+                        <li
+                            key={project.name}
+                            className="col-span-1 min-w-64 snap-start transition-opacity"
+                        >
+                            <Link href={project.link} className="space-y-4">
+                                <div className="
+                                 overflow-hidden rounded-md bg-secondary">
+                                    <Image
+                                        src={ProfileImage}
+                                        alt={project.name}
+                                        className="h-full w-full object-cover"
+                                    />
+                                </div>
+
+                                <div className="space-y-1">
+                                    <p className="font-medium leading-tight">
+                                        {project.name}
+                                    </p>
+                                    <p className="text-secondary">
+                                        {project.description}
+                                    </p>
+                                </div>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </Section> */}
         </main>
     );
 }

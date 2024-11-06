@@ -98,11 +98,12 @@
 }
 
 .embla__controls {
-    display: grid;
+    display: flex;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
     gap: 1.2rem;
-    margin-top: 1.8rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .embla__buttons {
@@ -116,7 +117,6 @@
     -webkit-tap-highlight-color: rgba(116, 109, 118, 0.5);
     -webkit-appearance: none;
     appearance: none;
-    background-color: transparent;
     touch-action: manipulation;
     display: inline-flex;
     text-decoration: none;
@@ -124,19 +124,19 @@
     border: 0;
     padding: 0;
     margin: 0;
-    box-shadow: inset 0 0 0 0.2rem rgb(240, 240, 242);
-    width: 2.6rem; /* Reduced size */
-    height: 2.6rem; /* Reduced size */
+    background-color: var(--gray-3);
+    width: 2.2rem; /* Reduced size */
+    height: 2.2rem; /* Reduced size */
     z-index: 1;
     border-radius: 50%;
-    color: rgb(222, 222, 222);
+    color: var(--gray-12);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .embla__button:disabled {
-    color: rgb(240, 240, 242);
+    color: var(--gray-10);
 }
 
 .embla__button__svg {

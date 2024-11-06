@@ -1,6 +1,6 @@
-import ThemeProvider from "@/components/theme/Provider.jsx";
-import ThemeSwitcher from "@/components/theme/Switch.jsx";
-import { RESUME_DATA } from "@/data/resume.jsx";
+import ThemeProvider from "@/components/theme/Provider";
+import ThemeSwitcher from "@/components/theme/Switch";
+import { RESUME_DATA } from "@/data/resume";
 import { neueMontreal } from "@/public/fonts/local-font";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
             suppressContentEditableWarning
             className={`${myFont.className} ${inter.className}`}
         >
-            <body className="width-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] antialiased">
+            <body className="0px -50px 36px -28px inset; width-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] antialiased">
                 <ThemeProvider
                     attribute="class"
                     defaultTheme="system"

@@ -61,21 +61,21 @@ export const RESUME_DATA = {
             ],
             media: {
                 videos: [],
-                images: [ProfileImage],
+                images: [],
                 linkPreviews: [
-                    "https://github.com/Stanford-Health/wearipedia",
-                    "https://github.com/Stanford-Health/wearable-notebooks",
+                    "https://github.com/amitsgh/jamboree_admission",
+                    "https://github.com/amitsgh/jamboree_admission/blob/main/images/correlation_heatmap.png",
                 ],
             },
         },
         {
-            company: "Hitachi Vantara",
-            link: "https://www.hitachivantara.com",
-            badges: ["Pune, India"],
-            title: "SDE Intern",
-            logo: "HitachiLogo" || "HV",
-            start: "Jan 2023",
-            end: "Jul 2023",
+            company: "Omdena",
+            link: "https://omdena.com",
+            badges: ["Remote"],
+            title: "Junior ML Engineer",
+            logo: "OmdenaLogo" || "OM",
+            start: "Mar 2024",
+            end: "Present",
             description: [
                 "Designed and implemented an AI model for climate and credit risk scoring with 93% accuracy.",
                 "Enhanced data quality through extensive preprocessing, web scraping, and API integration.",
@@ -84,16 +84,31 @@ export const RESUME_DATA = {
             media: {
                 videos: [],
                 images: [],
-                linkPreviews: [],
+                linkPreviews: [
+                    "https://github.com/Stanford-Health/wearipedia",
+                    "https://github.com/Stanford-Health/wearable-notebooks",
+                ],
             },
         },
     ],
-    projects: [
+    project: [
         {
             name: "Jamboree Admission Analysis",
             link: "https://github.com/amitsgh/jamboree_admission",
-            description:
-                "Machine learning project using Random Forest and Gradient Boosting to predict admission probabilities, achieving 79% accuracy. Conducted feature analysis to identify key predictors.",
+            description: [
+                "Designed and implemented an AI model for climate and credit risk scoring with 93% accuracy.",
+                "Enhanced data quality through extensive preprocessing, web scraping, and API integration.",
+                "Optimized BERT for text classification and reported performance metrics using matplotlib and pandas.",
+                "Tech: Python, Pandas, Scikit-learn, Statistical Analysis, Matplotlib, GridSearchCV",
+            ],
+            media: {
+                linkPreviews: ["https://github.com/amitsgh/jamboree_admission"],
+                videos: [],
+                // images: [],
+                images: [
+                    "https://raw.githubusercontent.com/amitsgh/jamboree_admission/main/images/correlation_heatmap.png",
+                ],
+            },
             techStack: [
                 "Python",
                 "Pandas",
@@ -104,18 +119,28 @@ export const RESUME_DATA = {
             ],
         },
         {
-            name: "LoanTap Credit Risk Analysis",
-            link: "https://github.com/amitsgh/loan_tap",
-            description:
-                "Developed models using Logistic Regression and XGBoost, achieving 91% ROC-AUC for loan default prediction. Improved model accuracy by 15% with feature scaling and SMOTE.",
+            name: "Jamboree Admission Analysis",
+            link: "https://github.com/amitsgh/jamboree_admission",
+            description: [
+                "Designed and implemented an AI model for climate and credit risk scoring with 93% accuracy.",
+                "Enhanced data quality through extensive preprocessing, web scraping, and API integration.",
+                "Optimized BERT for text classification and reported performance metrics using matplotlib and pandas.",
+            ],
+            media: {
+                videos: [],
+                images: [],
+                linkPreviews: [
+                    "https://github.com/Stanford-Health/wearipedia",
+                    "https://github.com/Stanford-Health/wearable-notebooks",
+                ],
+            },
             techStack: [
                 "Python",
                 "Pandas",
                 "Scikit-learn",
-                "XGBoost",
+                "Statistical Analysis",
                 "Matplotlib",
                 "GridSearchCV",
-                "SMOTE",
             ],
         },
     ],

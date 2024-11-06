@@ -1,41 +1,31 @@
 "use client";
 
-import * as AvatarPrimitive from "@radix-ui/react-avatar";
-import * as React from "react";
+import Image from "next/image";
+import React, { useState } from "react";
 
-import { cn } from "@/lib/utils";
+const Avatar = ({ src, alt, fallbackText, className, ...props }) => {
+    const [isError, setIsError] = useState(false);
 
-const Avatar = React.forwardRef(({ className, ...props }, ref) => (
-    <AvatarPrimitive.Root
-        ref={ref}
-        className={cn(
-            "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-xl",
-            className,
-        )}
-        {...props}
-    />
-));
-Avatar.displayName = AvatarPrimitive.Root.displayName;
+    return (
+        <div
+            className={`relative flex h-28 w-28 overflow-hidden rounded-xl ${className}`}
+        >
+            {!isError ? (
+                <Image
+                    src={src}
+                    alt={alt}
+                    layout="fill"
+                    objectFit="cover"
+                    onError={() => setIsError(true)}
+                    {...props}
+                />
+            ) : (
+                <div className="flex h-full w-full items-center justify-center bg-secondary">
+                    <span className="text-primary">{fallbackText}</span>
+                </div>
+            )}
+        </div>
+    );
+};
 
-const AvatarImage = React.forwardRef(({ className, ...props }, ref) => (
-    <AvatarPrimitive.Image
-        ref={ref}
-        className={cn("aspect-square h-full w-full", className)}
-        {...props}
-    />
-));
-AvatarImage.displayName = AvatarPrimitive.Image.displayName;
-
-const AvatarFallback = React.forwardRef(({ className, ...props }, ref) => (
-    <AvatarPrimitive.Fallback
-        ref={ref}
-        className={cn(
-            "bg-muted flex h-full w-full items-center justify-center rounded-xl",
-            className,
-        )}
-        {...props}
-    />
-));
-AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
-
-export { Avatar, AvatarFallback, AvatarImage };
+export default Avatar;
